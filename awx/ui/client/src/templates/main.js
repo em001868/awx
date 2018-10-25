@@ -409,9 +409,9 @@ angular.module('templates', [surveyMaker.name, jobTemplates.name, labels.name, p
                 workflowMaker = {
                     name: 'templates.editWorkflowJobTemplate.workflowMaker',
                     url: '/workflow-maker',
-                    // ncyBreadcrumb: {
-                    //     label: 'WORKFLOW MAKER'
-                    // },
+                    ncyBreadcrumb: {
+                        skip: true
+                    },
                     data: {
                         formChildState: true
                     },
@@ -499,7 +499,7 @@ angular.module('templates', [surveyMaker.name, jobTemplates.name, labels.name, p
 
                                     $scope.$watch('selectedTemplate', () => {
                                         $scope.job_templates.forEach(function(row, i) {
-                                            if(_.has($scope, 'selectedTemplate.id') && row.id === $scope.selectedTemplate.id) {
+                                            if(_.hasIn($scope, 'selectedTemplate.id') && row.id === $scope.selectedTemplate.id) {
                                                 $scope.job_templates[i].checked = 1;
                                             }
                                             else {
@@ -576,7 +576,7 @@ angular.module('templates', [surveyMaker.name, jobTemplates.name, labels.name, p
 
                                     $scope.$watch('selectedTemplate', () => {
                                         $scope.workflow_inventory_sources.forEach(function(row, i) {
-                                            if(_.has($scope, 'selectedTemplate.id') && row.id === $scope.selectedTemplate.id) {
+                                            if(_.hasIn($scope, 'selectedTemplate.id') && row.id === $scope.selectedTemplate.id) {
                                                 $scope.workflow_inventory_sources[i].checked = 1;
                                             }
                                             else {
@@ -653,7 +653,7 @@ angular.module('templates', [surveyMaker.name, jobTemplates.name, labels.name, p
 
                                     $scope.$watch('selectedTemplate', () => {
                                         $scope.projects.forEach(function(row, i) {
-                                            if(_.has($scope, 'selectedTemplate.id') && row.id === $scope.selectedTemplate.id) {
+                                            if(_.hasIn($scope, 'selectedTemplate.id') && row.id === $scope.selectedTemplate.id) {
                                                 $scope.projects[i].checked = 1;
                                             }
                                             else {
@@ -708,11 +708,8 @@ angular.module('templates', [surveyMaker.name, jobTemplates.name, labels.name, p
                                 delete list.fields.labels;
                                 delete list.fieldActions;
                                 list.fields.name.columnClass = "col-md-8";
-                                list.disableRow = "{{ !workflowJobTemplateObj.summary_fields.user_capabilities.edit }}";
-                                list.disableRowValue = '!workflowJobTemplateObj.summary_fields.user_capabilities.edit';
-                                list.iterator = 'job_template';
-                                list.name = 'job_templates';
-                                list.basePath = "job_templates";
+                                list.disableRow = "{{ !template.summary_fields.user_capabilities.edit }}";
+                                list.disableRowValue = '!template.summary_fields.user_capabilities.edit';
                                 list.fields.info = {
                                     ngInclude: "'/static/partials/job-template-details.html'",
                                     type: 'template',
