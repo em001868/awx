@@ -720,6 +720,7 @@ angular.module('templates', [surveyMaker.name, jobTemplates.name, labels.name, p
                                     ngInclude: "'/static/partials/job-template-details.html'",
                                     type: 'template',
                                     columnClass: 'col-md-3',
+                                    infoHeaderClass: 'col-md-3',
                                     label: '',
                                     nosort: true
                                 };

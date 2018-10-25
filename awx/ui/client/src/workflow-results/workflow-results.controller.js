@@ -70,6 +70,7 @@ export default ['workflowData', 'workflowResultsService', 'workflowDataOptions',
                     ALWAYS: i18n._('Always'),
                     PROJECT_SYNC: i18n._('Project Sync'),
                     INVENTORY_SYNC: i18n._('Inventory Sync'),
+                    WORKFLOW_SYNC: i18n._('Workflow Sync'),
                     KEY: i18n._('KEY'),
                 }
             };
