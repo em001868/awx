@@ -409,9 +409,6 @@ angular.module('templates', [surveyMaker.name, jobTemplates.name, labels.name, p
                 workflowMaker = {
                     name: 'templates.editWorkflowJobTemplate.workflowMaker',
                     url: '/workflow-maker',
-                    // ncyBreadcrumb: {
-                    //     label: 'WORKFLOW MAKER'
-                    // },
                     data: {
                         formChildState: true
                     },
